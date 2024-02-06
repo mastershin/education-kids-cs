@@ -1,0 +1,147 @@
+<htmk>
+<head>
+<title>Simple Timer</title>
+</head>
+<style>
+body {
+  background-color: #c0c0c0;
+  display: flex; /* centers timer */
+}
+
+#timer {
+  background-color: #333333; /* color when timer is stopped */
+  text-align: center;
+  border: 2px solid #000; /* Black solid border */
+  padding: 20px;
+  display: inline-block;
+  margin: auto;
+  h1 {
+    color: #00ff00;
+    font-size: 4em;
+  }
+}
+
+button {
+  background-color: #007bff;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+button:active {
+  background-color: #004085;
+  color: white;
+}
+
+</style>
+
+
+<body>
+<div id="timer">
+  <h1 id="timeDisplay">0</h1>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+  <button id="add1sec">+1 Second</button>
+  <button id="add1min">+1 Minute</button>
+  <button id="add10min">+10 Minutes</button>
+</div>
+</body>
+
+<script>
+// Variables
+let timer_duration_sec = 0;
+let timer_status = "stopped";
+
+const timerDiv = document.getElementById("timer");
+const timeDisplay = document.getElementById("timeDisplay");
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+const resetButton = document.getElementById("reset");
+
+const add1secButton = document.getElementById("add1sec");
+const add1minButton = document.getElementById("add1min");
+const add10minButton = document.getElementById("add10min");
+
+startButton.addEventListener("click", startTimer);
+stopButton.addEventListener("click", stopTimer);
+resetButton.addEventListener("click", resetTimer);
+add1secButton.addEventListener("click", add1Second);
+add1minButton.addEventListener("click", add1Minute);
+add10minButton.addEventListener("click", add10Minutes);
+
+// Loop function
+function timer_loop() {
+  if (timer_status === "running") {
+    timer_duration_sec--;
+
+    if (timer_duration_sec <= 0) {
+      timer_duration_sec = 0;
+      timer_status = "stopped";
+    }
+  }
+  updateDisplay();
+}
+
+// Start timer function
+function startTimer() {
+  stopTimer();
+  timer_status = "running";
+}
+
+// Stop timer function
+function stopTimer() {
+  timer_status = "stopped";
+  updateDisplay();
+}
+
+// Reset timer function
+function resetTimer() {
+  timer_duration_sec = 0;
+  stopTimer();
+}
+
+// Add 1 second to the timer
+function add1Second() {
+  timer_duration_sec++;
+  updateDisplay();
+}
+
+// Add 1 minute to the timer
+function add1Minute() {
+  timer_duration_sec += 60;
+  updateDisplay();
+}
+
+// Add 10 minutes to the timer
+function add10Minutes() {
+  timer_duration_sec += 600;
+  updateDisplay();
+}
+
+// Update timer display
+function updateDisplay() {
+  //   const hours = Math.floor(timer_duration_sec / 3600);
+  //   const minutes = Math.floor((timer_duration_sec % 3600) / 60);
+  //   const seconds = timer_duration_sec % 60;
+
+  //   timeDisplay.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+
+  timeDisplay.textContent = timer_duration_sec;
+}
+
+function pad(number) {
+  return number < 10 ? `0${number}` : number;
+}
+
+setInterval(timer_loop, 1000);
+
+</script>
+
+</html>
