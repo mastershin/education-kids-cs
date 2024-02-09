@@ -1,7 +1,16 @@
+# Title: LED Timer
+# Description: Button A clears LEDs, Button B Lights up all LEDs and decreases by 1 every second
+# Lesson Code: Microbit_L10_010_LED_Timer
+# Lesson Name: LED Timer
+# Source Code Name: L10_010_LED_Timer.py
+# Environment: makecode.microbit.org
+# Project Link: https://makecode.microbit.org/S30409-52244-96520-14238
+#
+# Source Code: https://github.com/mastershin/learn-coding-101/tree/main/Microbit
+#
+# (C) 2024. mastershinAI.com - MIT License.
+
 timer_sec = 0
-# (C) 2024. mastershin at gmail.com
-# https://github.com/mastershin/learn-microbit-101
-# Part 1: Basic Timer, 1 second per LEDs. 25 seconds.
 
 def on_button_pressed_a():
     global timer_sec

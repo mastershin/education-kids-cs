@@ -1,5 +1,18 @@
-# (C) 2024. mastershin at gmail.com
-# https://github.com/mastershin/learn-microbit-101
+# Title: Two Minute Timer for Brushing Teeth
+# Description: Button A clears LEDs, Button B will start the timer for 2 minutes
+# Lesson Code: Microbit_L10_030_LED_Timer
+# Lesson Name: LED Timer
+# Source Code Name: L10_030_Brush_Teeth_Timer_2min_SoundInput.py
+# Environment: makecode.microbit.org
+# Project Link: https://makecode.microbit.org/S14820-71341-37264-35173
+#
+# Source Code: https://github.com/mastershin/learn-coding-101/tree/main/Microbit
+#
+# (C) 2024. mastershinAI.com - MIT License.
+
+timer_sec = 0
+second_per_LED = 0
+max_seconds = 0
 
 def on_button_pressed_a():
     global timer_sec
@@ -19,9 +32,8 @@ def update_display():
                 led.plot(j, i)
             else:
                 led.unplot(j, i)
-timer_sec = 0
-second_per_LED = 0
-max_seconds = 0
+
+
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
 # set for 2 minutes (125 seconds)
