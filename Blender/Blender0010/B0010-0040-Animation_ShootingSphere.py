@@ -1,9 +1,9 @@
 import bpy
-# Blender Tutorial 0010: Create Primitive Objects using Blender Python (bpy library)
-# (C) 2024 Mastershin AI. MIT License.
+import math
 
 ###################################################################################
 # Danger: Ensure we're in object mode and clear / delete all the object
+###################################################################################
 # Change to Object Mode
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
@@ -23,16 +23,24 @@ bpy.ops.object.delete()
 
 
 ###################################################################################
-# Main Object Creation Part:
+# Main Object Creation
 ###################################################################################
+bpy.ops.mesh.primitive_uv_sphere_add(radius=1, location=(0,0,0))
+earth = bpy.context.object
 
-#bpy.ops.mesh.primitive_grid_add(size=20, location=(0, 0, 0))
+###################################################################################
+# Set up animation
+###################################################################################
+num_frames = 20
+scene = bpy.context.scene
+scene.frame_start = 1
+scene.frame_end = num_frames  # One frame per degree
 
-bpy.ops.mesh.primitive_cylinder_add(radius=1, depth=2, location=(-15, 0, 0)) # , vertices=32)
-bpy.ops.mesh.primitive_cone_add(radius1=1, depth=2, location=(-10, 0, 0)) # , vertices=32)
-bpy.ops.mesh.primitive_torus_add(location=(-5, 0, 0), major_radius=1, minor_radius=0.5) # , major_segments=48, minor_segments=12)
-bpy.ops.mesh.primitive_cube_add(size=1, location=(0, 0, 0))
-bpy.ops.mesh.primitive_plane_add(size=1, location=(5, 0, 0))
-bpy.ops.mesh.primitive_circle_add(radius=1, location=(10, 0, 0)) # , vertices=32)
-bpy.ops.mesh.primitive_monkey_add(size=2, location=(15, 0, 0))
+for frame in range(num_frames):
 
+    x = frame
+    y = 0
+    
+    earth.location = (x, y, 0)
+    # Insert keyframe for location
+    earth.keyframe_insert(data_path="location", frame=frame)
