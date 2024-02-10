@@ -1,5 +1,8 @@
 /*
-Various Stars with random brightness and radius
+@title: Various Stars with random brightness and radius
+@lesson_code: L0010-050-ShiningStars.js
+@author: jae at Mastershin AI
+(C)2024 MastershinAI.com. MIT License. All Rights Reserved.
 */
 
 class Star {
