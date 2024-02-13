@@ -1,4 +1,8 @@
-# Skills Developed
+# Project: Create Your Own Animated Solar System
+## Overview
+In this project, kids will create a simple model of the solar system in Blender, using Python scripts to automate the creation of planets, the sun, and animate their orbits. This project introduces basic concepts of astronomy, 3D modeling, and programming.
+
+## Skills Developed
 - Python Programming: Basic syntax, loops, functions, and Blender API usage.
 - 3D Modeling: Understanding of basic 3D shapes, transformations, and animations in Blender.
 - Astronomy Basics: Learning about the planets, their relative sizes, and orbits around the sun.
