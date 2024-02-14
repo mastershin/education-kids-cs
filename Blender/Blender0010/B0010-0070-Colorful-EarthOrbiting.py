@@ -18,11 +18,11 @@ delete_all()
 # Create a sun
 ###################################################################################
 bpy.ops.mesh.primitive_uv_sphere_add(radius=3, location=(0,0,0))
-obj = bpy.context.object
+sun = bpy.context.object
 # Set sun color
 mat = bpy.data.materials.new(name="Sun_Material")
 mat.diffuse_color = (1, 1, 0, 1)  # RGB and alpha
-obj.data.materials.append(mat)
+sun.data.materials.append(mat)
 
 
 ###################################################################################
