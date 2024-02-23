@@ -1,0 +1,21 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.image-container {
+  position: relative; /* Allows absolute positioning for overlaying images */
+}
+
+.image-container img {
+  opacity: 0; /* Initially hide all images */
+  position: absolute; /* Position images on top of each other */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure images fill container */
+  /*transition: opacity 1s ease-in-out;*/  /* Smooth transition duration and easing */
+}
+
+.image-container img.current {
+  opacity: 1; /* Show the currently displayed image */
+}
